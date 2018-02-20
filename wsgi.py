@@ -5,7 +5,7 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
-    
+    print("I like trains")
     return "Hello World! Greetings from "+socket.gethostname()+"\n"
 
 
