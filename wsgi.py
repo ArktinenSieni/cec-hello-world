@@ -27,7 +27,7 @@ def read_log():
         log.warning("Log reading failed: " + str(e))
         
         #return str(e)
-        return str(os.listdir())
+        return str(os.listdir("/"))
 
 
 def write_log():
