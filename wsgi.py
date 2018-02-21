@@ -15,7 +15,11 @@ def get_logfile():
 
 def read_log():
     try:
-        log_file = open(get_logfile(), "r")
+        try:
+            log_file = open(get_logfile(), "r")
+        except IOError:
+            log_file = open(get_logfile(), "w")
+            
         log_data = log_file.read()
         log_file.close()
 
