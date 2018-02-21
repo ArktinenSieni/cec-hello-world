@@ -9,7 +9,7 @@ log = logging.getLogger("mushroom-generator")
 
 
 def get_logfile():
-    return "/mnt/important_logs.txt"
+    return "important_logs.txt"
 
 
 def read_log():
