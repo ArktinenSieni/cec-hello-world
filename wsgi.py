@@ -23,7 +23,7 @@ def read_log():
         return log_data
 
     except Exception as e:
-        log.warning("Log reading failed: " + e)
+        log.warning("Log reading failed: " + str(e))
         
         return ""
 
@@ -38,7 +38,7 @@ def write_log():
 
         log.info("Logging successful")
     except Exception as e:
-        log.warning("Logging failed: " + e)
+        log.warning("Logging failed: " + str(e))
 
 
 
