@@ -10,7 +10,7 @@ log = logging.getLogger("mushroom-generator")
 
 
 def get_logfile():
-    return "/mnt/important_logs.txt"
+    return "/mnt/data/important_logs.txt"
 
 
 def read_log():
@@ -19,7 +19,7 @@ def read_log():
             log_file = open(get_logfile(), "r")
         except IOError:
             log_file = open(get_logfile(), "w")
-            
+
         log_data = log_file.read()
         log_file.close()
 
