@@ -14,6 +14,8 @@ def get_logfile():
 
 def read_log():
     try:
+        write_log()
+
         try:
             log_file = open(get_logfile(), "r")
         except IOError:
