@@ -42,7 +42,7 @@ def write_log():
             log_file = open(get_logfile(), "w")
 
 
-        log_line = str(socket.gethostname) + " " + str(datetime.datetime.now())
+        log_line = str(socket.gethostname) + " " + str(datetime.datetime.now()) + "\n"
         log_file.write(log_line)
 
         log_file.close()
