@@ -1,7 +1,6 @@
 import socket
 import datetime
 import logging
-import os
 from flask import Flask
 
 application = Flask(__name__)
@@ -10,7 +9,7 @@ log = logging.getLogger("mushroom-generator")
 
 
 def get_logfile():
-    return "/mnt/data/important_logs.txt"
+    return "/data/important_logs.txt"
 
 
 def read_log():
@@ -30,8 +29,7 @@ def read_log():
     except Exception as e:
         log.warning("Log reading failed: " + str(e))
         
-        #return str(e)
-        return str(os.listdir("/"))
+        return str(e)
 
 
 def write_log():
