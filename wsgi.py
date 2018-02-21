@@ -1,6 +1,5 @@
 import socket
 import datetime
-import file
 import logging
 from flask import Flask
 
@@ -13,7 +12,7 @@ def get_logfile():
 
 def read_log():
     try:
-        log_file = file.open(get_logfile, "r")
+        log_file = open(get_logfile, "r")
         logging = log_file.read()
         log_file.close()
 
@@ -25,7 +24,7 @@ def read_log():
 
 def write_log():
     try:
-        log_file = file.open(get_logfile(), "a")
+        log_file = open(get_logfile(), "a")
         log_line = socket.gethostname + " " + str(datetime.datetime.now())
 
         log_file.write(log_line)
@@ -51,4 +50,5 @@ def hello():
 
 
 if __name__ == "__main__":
+    write_log()
     application.run()
