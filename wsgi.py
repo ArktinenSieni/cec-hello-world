@@ -14,7 +14,7 @@ def get_logfile():
 
 def read_log():
     try:
-        log_file = open(get_logfile, "r")
+        log_file = open(get_logfile(), "r")
         log_data = log_file.read()
         log_file.close()
 
