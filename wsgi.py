@@ -9,7 +9,7 @@ log = logging.getLogger("mushroom-generator")
 
 
 def get_logfile():
-    return "/mnt/important_logs"
+    return "/mnt/important_logs.txt"
 
 
 def read_log():
@@ -25,15 +25,20 @@ def read_log():
     except Exception as e:
         log.warning("Log reading failed: " + str(e))
         
-        return ""
+        return str(e)
 
 
 def write_log():
     try:
-        log_file = open(get_logfile(), "a")
-        log_line = socket.gethostname + " " + str(datetime.datetime.now())
+        try:
+            log_file = open(get_logfile(), "a")
+        except IOError:
+            log_file = open(get_logfile(), "w")
 
+
+        log_line = socket.gethostname + " " + str(datetime.datetime.now())
         log_file.write(log_line)
+
         log_file.close()
 
         log.info("Logging successful")
