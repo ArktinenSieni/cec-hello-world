@@ -1,6 +1,7 @@
 import socket
 import datetime
 import logging
+import os
 from flask import Flask
 
 application = Flask(__name__)
@@ -25,7 +26,8 @@ def read_log():
     except Exception as e:
         log.warning("Log reading failed: " + str(e))
         
-        return str(e)
+        #return str(e)
+        return str(os.listdir())
 
 
 def write_log():
