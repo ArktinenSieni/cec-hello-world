@@ -5,6 +5,8 @@ from flask import Flask
 
 application = Flask(__name__)
 
+log = logging.getLogger("mushroom-generator")
+
 
 def get_logfile():
     return "/mnt/important_logs"
@@ -13,13 +15,17 @@ def get_logfile():
 def read_log():
     try:
         log_file = open(get_logfile, "r")
-        logging = log_file.read()
+        log_data = log_file.read()
         log_file.close()
 
-        logging.info("Log reading successful")
-    
+        log.info("Log reading successful")
+        
+        return log_data
+
     except Exception as e:
-        logging.warning("Log reading failed: " + e)
+        log.warning("Log reading failed: " + e)
+        
+        return ""
 
 
 def write_log():
@@ -30,9 +36,9 @@ def write_log():
         log_file.write(log_line)
         log_file.close()
 
-        logging.info("Logging successful")
+        log.info("Logging successful")
     except Exception as e:
-        logging.warning("Logging failed: " + e)
+        log.warning("Logging failed: " + e)
 
 
 
