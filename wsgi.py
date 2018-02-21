@@ -9,7 +9,7 @@ log = logging.getLogger("mushroom-generator")
 
 
 def get_logfile():
-    return "/data/important_logs.txt"
+    return "/mnt/important_logs.txt"
 
 
 def read_log():
@@ -42,7 +42,7 @@ def write_log():
             log_file = open(get_logfile(), "w")
 
 
-        log_line = str(socket.gethostname) + " " + str(datetime.datetime.now()) + "\n"
+        log_line = "[ Hostname: " + str(socket.gethostname) + "Datetime: " + str(datetime.datetime.now()) + " ]\n"
         log_file.write(log_line)
 
         log_file.close()
