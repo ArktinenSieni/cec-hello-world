@@ -55,7 +55,7 @@ def write_log():
 
 @application.route("/")
 def hello():
-    showed_output = "Hello World! Greetings from " + socket.gethostname() + "\n" + read_log()
+    showed_output = "<body><h1>Hello World! Greetings from " + socket.gethostname() + "</h1><p>" + read_log() + "</p></body>"
     
     return showed_output
 
